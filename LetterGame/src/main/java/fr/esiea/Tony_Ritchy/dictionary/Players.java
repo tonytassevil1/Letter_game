@@ -1,10 +1,10 @@
-package fr.esiea.unique.binome.name.dictionary;
+package fr.esiea.Tony_Ritchy.dictionary;
 
 public class Players {
 
 	private String nomPlayer;
 	//private int nbLettreMain;//Je ne sais pas combien de lettre peut avoir un joueur en main
-	private char Lettre;
+	//private char lettre;
 
 	//public Player(String pNom, int nbLettre, string pLettre){
 	public Player(String pNom, string pLettre){
@@ -25,10 +25,9 @@ public class Players {
 	}
 	
 	//Tire une littre 
-	public void getLettre(String pLettre){
-		plettre = Lettre ;
+	public char getLettre(){
+		return "abcdefghijklmnopqrstuvwxyz"[rand() % 26];
 		
-		lettre = "abcdefghijklmnopqrstuvwxyz"[rand() % 26];
 	}
 
 

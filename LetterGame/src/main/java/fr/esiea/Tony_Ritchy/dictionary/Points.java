@@ -1,4 +1,4 @@
-package fr.esiea.unique.binome.name.dictionary;
+package fr.esiea.Tony_Ritchy.dictionary;
 
 public class Points {
 
