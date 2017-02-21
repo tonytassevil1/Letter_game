@@ -15,6 +15,7 @@ public class PotCommun {
 	}
 	
 	public ajouterlettre(){
+		
 		lettre();
 		
 	}
