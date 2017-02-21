@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Jeux
 {
 	
-String potCommun= "";
+String PotCommun= "";
 	
 Joueur joueur1 = new Joueur();
 	
@@ -20,7 +20,7 @@ char j1 = joueur1.getLettre();
 char j2 = joueur2.getLettre();
 		
 		
-potCommun += j1 + j2;
+PotCommun += j1 + j2;
 		
 System.out.println(PotCommun);
 		
@@ -73,9 +73,9 @@ return 1;
 	
 public void tourDeJeu(Joueur joueurSelectionne) {
 		
-potCommun += joueurSelectionne.tirerUneLettre();
+PotCommun += joueurSelectionne.getLettre();
 		
-potCommun += joueurSelectionne.tirerUneLettre();
+PotCommun += joueurSelectionne.getLettre();
 		
 		
 		
