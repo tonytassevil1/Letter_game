@@ -11,7 +11,7 @@ public class Players {
 	//private char lettre;
 
 	//public Player(String pNom, int nbLettre, string pLettre){
-	public Player(String pNom, string pLettre){
+	public Players(String pNom, string pLettre){
 		nomPlayer = pNom;
 		this.idPlayer = compteur++;
 		//nbLettreMain = nbLettre;

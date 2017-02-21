@@ -7,9 +7,9 @@ public class Jeux
 	
 String PotCommun= "";
 	
-Joueur joueur1 = new Joueur();
+Players joueur1 = new Players();
 	
-Joueur joueur2 = new Joueur();
+Players joueur2 = new Players();
 	
 	
 public void premierTourDeJeu()
@@ -25,25 +25,23 @@ PotCommun += j1 + j2;
 System.out.println(PotCommun);
 		
 		
-int i = quiCommence(j1, j2);
+int i = premieracommence(j1, j2);
 		
 		
-if (i == 1) { //Joueur 1
-			
-tourDeJeu(joueur1);
-		
+if (i == 1) { 
+//Joueur 1			
+tour(joueur1);
 }
 		
 else { 
-//Joueur 2
-			
-tourDeJeu(joueur2);
+//Joueur 2		
+tour(joueur2);
 		
 }
 	}
 	
 	
-public int quiCommence(char j1, char j2)
+public int premieracommence(char j1, char j2)
 	
 {
 		
@@ -64,39 +62,29 @@ else {
 System.out.println("Le joueur " + j2 + " commence.\n");
 			
 return 2;
-		}
+}
 		
 return 1;
-		
-	}
+}
 	
 	
-public void tourDeJeu(Joueur joueurSelectionne) {
+public void tour(Players selection) {
 		
-PotCommun += joueurSelectionne.getLettre();
-		
-PotCommun += joueurSelectionne.getLettre();
-		
-		
-		
-//TODO TOUR DU JEU
+PotCommun += selection.getLettre();
+PotCommun += selection.getLettre();
 		
 		
 //Fin du tour
 		
-if(joueurSelectionne.idJoueur == 2)
-		
-{
+if(selection.idPlayer == 2){
 			
-tourDeJeu(joueur1);
+tour(joueur1);
 		
 }
 		
-else
-		
-{
+else{
 			
-tourDeJeu(joueur2);
+tour(joueur2);
 		
 }
 	
