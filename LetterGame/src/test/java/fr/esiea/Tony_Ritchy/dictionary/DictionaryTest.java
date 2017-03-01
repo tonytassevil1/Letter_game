@@ -11,16 +11,16 @@ import static org.junit.Assert.assertTrue;
  */
 public class DictionaryTest {
 
-    private IDictionary dictionary;
+	private IDictionary dictionary;
 
-    @Before
-    public void setup() {
-        //TODO
-    }
+	@Before
+	public void setup() {
+		// TODO
+	}
 
-    @Test
-    public void testIsWord() {
-        assertTrue(dictionary.isWord("maman"));
-        assertFalse(dictionary.isWord("namam"));
-    }
+	@Test
+	public void testIsWord() {
+		assertTrue(dictionary.isWord("maman"));
+		assertFalse(dictionary.isWord("namam"));
+	}
 }

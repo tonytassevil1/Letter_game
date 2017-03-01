@@ -9,28 +9,24 @@ import java.io.InputStream;
 
 import java.io.InputStreamReader;
 
-
-
 public class Dictionary implements IDictionary {
-	
 
 	public BufferedReader OuvrirFichier(String motTester) {
 
 		String fichier = "src/main/ressources/dico.txt";
 
-		
 		BufferedReader br = null;
 
-		try {//Ouvrir fichier
+		try {// Ouvrir fichier
 
 			InputStream ips = new FileInputStream(fichier);
 
 			InputStreamReader ipsr = new InputStreamReader(ips);
 
 			br = new BufferedReader(ipsr);
-			
+
 		}
- 
+
 		catch (Exception e) {
 
 			System.out.println(e.toString());
@@ -40,7 +36,6 @@ public class Dictionary implements IDictionary {
 		return br;
 
 	}
-
 
 	@Override
 
@@ -54,12 +49,13 @@ public class Dictionary implements IDictionary {
 
 			if (currentLine.equals(motTest) || currentLine.equals(null)) {
 
-				//System.out.println("Le mot : " + currentLine + " a ete trouve dans le dictionnaire");
+				// System.out.println("Le mot : " + currentLine + " a ete trouve
+				// dans le dictionnaire");
 
 				br.close();
 
 				return currentLine;
- 
+
 			}
 		} while (br.ready());
 
