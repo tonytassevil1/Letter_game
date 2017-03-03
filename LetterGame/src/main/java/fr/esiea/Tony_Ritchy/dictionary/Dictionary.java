@@ -1,67 +1,48 @@
-package fr.esiea.Tony_Ritchy.dictionary;
+package main.java.fr.esiea.Tony_Ritchy.dictionary;
 
 import java.io.BufferedReader;
-
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import java.io.InputStream;
-
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 public class Dictionary implements IDictionary {
+	private ArrayList<String> dictionary;
 
-	public BufferedReader OuvrirFichier(String motTester) {
+	public Dictionary() {
+		dictionary = new ArrayList<String>();
+		String chemin = System.getProperty("user.dir");
+		chemin += "\\src\\main\\resources\\dico.txt";
+		File file = new File(chemin);
 
-		String fichier = "src/main/ressources/dico.txt";
-
-		BufferedReader br = null;
-
-		try {// Ouvrir fichier
-
-			InputStream ips = new FileInputStream(fichier);
-
-			InputStreamReader ipsr = new InputStreamReader(ips);
-
-			br = new BufferedReader(ipsr);
-
+		if (file.exists() == true) {
+			System.out.println("dictionnaire trouvé");
 		}
-
-		catch (Exception e) {
-
-			System.out.println(e.toString());
-
+		try {
+			BufferedReader r = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+			String mot = null;
+			while ((mot= r.readLine()) != null) {
+				if (mot.length() > 1) {
+					dictionary.add(mot);
+				}
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-
-		return br;
-
 	}
 
-	@Override
+	public boolean isWord(String mot) {
+		return dictionary.contains(mot);
+	}
 
-	public String isWord(String motTest, BufferedReader br) throws IOException {
-
-		String currentLine;
-
-		do {
-
-			currentLine = br.readLine();
-
-			if (currentLine.equals(motTest) || currentLine.equals(null)) {
-
-				// System.out.println("Le mot : " + currentLine + " a ete trouve
-				// dans le dictionnaire");
-
-				br.close();
-
-				return currentLine;
-
-			}
-		} while (br.ready());
-
-		System.out.println("Error Detected.");
-
-		return "";
-
+	public ArrayList<String> getDictionary() {
+		return dictionary;
 	}
 }

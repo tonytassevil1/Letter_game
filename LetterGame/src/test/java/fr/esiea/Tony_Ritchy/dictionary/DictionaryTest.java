@@ -1,7 +1,9 @@
-package fr.esiea.unique.binome.name.dictionary;
+package test.java.fr.esiea.Tony_Ritchy.dictionary;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import main.java.fr.esiea.Tony_Ritchy.dictionary.IDictionary;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

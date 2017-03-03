@@ -1,44 +1,49 @@
-package fr.esiea.Tony_Ritchy.dictionary;
+package main.java.fr.esiea.Tony_Ritchy.dictionary;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Players {
+	private String id;
+	private String name;
+	public ArrayList<Character> currentLetters;
+	public ArrayList<String> motsTrouves;
+	public boolean motTrouve;
 
-	private String nomPlayer;
-	private static int compteur = 1;
-	public final int idPlayer;
-	public ArrayList<String> wordsfound;
-	// private int nbLettreMain;//Je ne sais pas combien de lettre peut avoir un
-	// joueur en main
-	// private char lettre;
-
-	// public Player(String pNom, int nbLettre, string pLettre){
-	public Players(String pNom, string pLettre) {
-		nomPlayer = pNom;
-		this.idPlayer = compteur++;
-		// nbLettreMain = nbLettre;
-		Lettre = pLettre;
-
+	public Players(String id, String name) {
+		currentLetters = new ArrayList<Character>();
+		motsTrouves = new ArrayList<String>();
+		this.id = id;
+		this.name = name;
+		this.motTrouve = false;
 	}
 
-	// Définit le nom du joueur
-	public void setNom(String pNom) {
-		nomPlayer = pNom;
+	public String toString() {
+		return name;
 	}
 
-	// Retourne le nom du joueur
-	public String getNom() {
-		return nomPlayer;
+	public boolean getmotTrouve() {
+		return (this.motTrouve);
 	}
 
-	// Tire une littre
-	public char getLettre() {
-		return "abcdefghijklmnopqrstuvwxyz"[rand() % 26];
-
-	}
-	
-	public void addword(String pword){
-		wordsfound.add(pword);
+	public void setmotTrouve(boolean b) {
+		this.motTrouve = b;
 	}
 
+	public ArrayList<String> getMotsTrouves() {
+		return motsTrouves;
+	}
+
+	public void ajouterMot(String pword) {
+		motsTrouves.add(pword);
+	}
+
+	public String makeword(PotCommun potCommun, ArrayList<String> lListPlayer) {
+		String entry = "";
+		System.out.println("Your list : " + getMotsTrouves());
+		System.out.println("enter the word : ");
+		Scanner scan = new Scanner(System.in);
+		entry = scan.next();
+		return entry;
+	}
 }
